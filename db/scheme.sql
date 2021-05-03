@@ -27,7 +27,7 @@ create table users
     password varchar(50) not null
 );
 
-create table posts
+create table ads
 (
     id serial primary key,
     created timestamp not null,
@@ -38,11 +38,11 @@ create table posts
     user_id int not null references users(id)
 );
 
-create table posts_photos
+create table ads_photos
 (
-    post_id int not null references posts(id),
+    ad_id int not null references ads(id),
     photo_id int not null references photos(id),
-    constraint posts_photos_pkey primary key (post_id, photo_id)
+    constraint ads_photos_pkey primary key (ad_id, photo_id)
 );
 
 

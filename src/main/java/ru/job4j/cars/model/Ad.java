@@ -5,8 +5,8 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "posts")
-public class Post {
+@Table(name = "ads")
+public class Ad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -17,32 +17,32 @@ public class Post {
     private Date created = new Date(System.currentTimeMillis());
     @Column(nullable = false)
     private boolean sold;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "model_id",  foreignKey = @ForeignKey(name = "MODEL_ID_FK"))
     private Model model;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "body_id", foreignKey = @ForeignKey(name = "BODY_ID_FK"))
     private Body body;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "posts_photos",
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinTable(name = "ads_photos",
             joinColumns = {@JoinColumn(
-                    name = "post_id", nullable = false,
-                    foreignKey = @ForeignKey(name = "POST_ID_FK"))
+                    name = "ad_id", nullable = false,
+                    foreignKey = @ForeignKey(name = "AD_ID_FK"))
             },
             inverseJoinColumns = {@JoinColumn(
                     name = "photo_id", nullable = false,
                     foreignKey = @ForeignKey(name = "PHOTO_ID_FK"))
             })
     private List<Photo> photos = new LinkedList<>();
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "USER_ID_FK"))
     private User user;
 
-    public Post(String description) {
+    public Ad(String description) {
         this.description = description;
     }
 
-    public Post() {
+    public Ad() {
     }
 
     public void addPhoto(Photo photo) {
@@ -121,12 +121,26 @@ public class Post {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Post post = (Post) o;
-        return id == post.id;
+        Ad ad = (Ad) o;
+        return id == ad.id;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Ad{"
+                + "id=" + id
+                + ", description='" + description + '\''
+                + ", created=" + created
+                + ", sold=" + sold
+                + ", model=" + model
+                + ", body=" + body
+                + ", photos=" + photos
+                + ", user=" + user
+                + '}';
     }
 }
