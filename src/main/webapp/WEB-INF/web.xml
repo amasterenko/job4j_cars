@@ -2,6 +2,87 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app>
+<web-app
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+        version="3.0">
   <display-name>Archetype Created Web Application</display-name>
+  <!--Folder where ads' photos will be saved. -->
+  <context-param>
+    <param-name>imagesPath</param-name>
+    <param-value>/home/am/img</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>ru.job4j.cars.servlets.IndexServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AdsServlet</servlet-name>
+    <servlet-class>ru.job4j.cars.servlets.AdsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PhotoServlet</servlet-name>
+    <servlet-class>ru.job4j.cars.servlets.PhotoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UserAdsServlet</servlet-name>
+    <servlet-class>ru.job4j.cars.servlets.UserAdsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AdEditServlet</servlet-name>
+    <servlet-class>ru.job4j.cars.servlets.AdEditServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CarModelsServlet</servlet-name>
+    <servlet-class>ru.job4j.cars.servlets.CarModelsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AuthServlet</servlet-name>
+    <servlet-class>ru.job4j.cars.servlets.AuthServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RegServlet</servlet-name>
+    <servlet-class>ru.job4j.cars.servlets.RegServlet</servlet-class>
+  </servlet>
+  <filter>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class>ru.job4j.cars.filters.AuthFilter</filter-class>
+  </filter>
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/index.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdsServlet</servlet-name>
+    <url-pattern>/ads</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PhotoServlet</servlet-name>
+    <url-pattern>/photo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserAdsServlet</servlet-name>
+    <url-pattern>/userads</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdEditServlet</servlet-name>
+    <url-pattern>/edit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CarModelsServlet</servlet-name>
+    <url-pattern>/models</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AuthServlet</servlet-name>
+    <url-pattern>/auth</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegServlet</servlet-name>
+    <url-pattern>/reg</url-pattern>
+  </servlet-mapping>
+  <filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>*</url-pattern>
+  </filter-mapping>
 </web-app>

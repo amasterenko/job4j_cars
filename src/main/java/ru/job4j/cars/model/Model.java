@@ -1,19 +1,41 @@
 package ru.job4j.cars.model;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.Table;
 import java.util.Objects;
-
+/**
+ * Class represents car's model.
+ * For more information on the relationship of the entity, see db/cars_scheme_png and db/scheme.sql
+ *
+ *@author AndrewMs
+ *@version 1.0
+ */
 @Entity
 @Table(name = "models")
 public class Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
     @Column(unique = true, nullable = false)
     private String name;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "make_id",  foreignKey = @ForeignKey(name = "MAKE_ID_FK"))
+    private Make make;
 
     public Model(String name) {
         this.name = name;
+    }
+
+    public Model(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Model(int id) {
+        this.id = id;
     }
 
     public Model() {
@@ -33,6 +55,14 @@ public class Model {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Make getMake() {
+        return make;
+    }
+
+    public void setMake(Make make) {
+        this.make = make;
     }
 
     @Override
@@ -57,6 +87,7 @@ public class Model {
         return "Model{"
                 + "id=" + id
                 + ", name='" + name + '\''
+                + ", make=" + make
                 + '}';
     }
 }

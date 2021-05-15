@@ -1,8 +1,16 @@
 package ru.job4j.cars.model;
 
 import javax.persistence.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Objects;
-
+/**
+ * Class represents user of the service.
+ * For more information on the relationship of the entity, see db/cars_scheme_png and db/scheme.sql
+ *
+ *@author AndrewMs
+ *@version 1.0
+ */
 @Entity
 @Table(name = "users")
 public class User {
@@ -15,17 +23,24 @@ public class User {
     private String email;
     @Column(unique = true, nullable = false)
     private String phone;
-    @Column(nullable = false)
-    private String password;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "credentials_id")
+    private UserCredentials credentials;
 
-    public User(String name, String email, String phone, String password) {
+    public User(String name, String email, String phone, String password)
+            throws NoSuchAlgorithmException, InvalidKeySpecException {
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.password = password;
+        this.credentials = new UserCredentials(password);
+
     }
 
     public User() {
+    }
+
+    public User(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -60,12 +75,12 @@ public class User {
         this.phone = phone;
     }
 
-    public String getPassword() {
-        return password;
+    public UserCredentials getCredentials() {
+        return credentials;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setCredentials(UserCredentials credentials) {
+        this.credentials = credentials;
     }
 
     @Override
@@ -92,7 +107,8 @@ public class User {
                 + ", name='" + name + '\''
                 + ", email='" + email + '\''
                 + ", phone='" + phone + '\''
-                + ", password='" + password + '\''
+                + ", credentials='" + credentials + '\''
                 + '}';
     }
+
 }

@@ -3,30 +3,29 @@ package ru.job4j.cars.model;
 import javax.persistence.*;
 import java.util.Objects;
 /**
- * Class represents car's body type.
+ * Class represents car's engine.
  * For more information on the relationship of the entity, see db/cars_scheme_png and db/scheme.sql
  *
  *@author AndrewMs
  *@version 1.0
  */
-
 @Entity
-@Table(name = "bodies")
-public class Body {
+@Table(name = "engines")
+public class Engine {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     @Column(unique = true, nullable = false)
-    String name;
+    private String name;
 
-    public Body(String name) {
+    public Engine(String name) {
         this.name = name;
     }
 
-    public Body() {
+    public Engine() {
     }
 
-    public Body(int id) {
+    public Engine(int id) {
         this.id = id;
     }
 
@@ -48,14 +47,10 @@ public class Body {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Body body = (Body) o;
-        return id == body.id;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Engine engine = (Engine) o;
+        return id == engine.id;
     }
 
     @Override
@@ -65,7 +60,7 @@ public class Body {
 
     @Override
     public String toString() {
-        return "Body{"
+        return "Engine{"
                 + "id=" + id
                 + ", name='" + name + '\''
                 + '}';

@@ -3,26 +3,30 @@ package ru.job4j.cars.model;
 import javax.persistence.*;
 import java.util.Objects;
 /**
- * Class represents ad's photo.
+ * Class represents car's make.
  * For more information on the relationship of the entity, see db/cars_scheme_png and db/scheme.sql
  *
  *@author AndrewMs
  *@version 1.0
  */
 @Entity
-@Table(name = "photos")
-public class Photo {
+@Table(name = "makes")
+public class Make {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false, name = "img_path")
-    private String imgPath;
+    @Column(unique = true, nullable = false)
+    private String name;
 
-    public Photo(String imgPath) {
-        this.imgPath = imgPath;
+    public Make(String name) {
+        this.name = name;
     }
 
-    public Photo() {
+    public Make(int id) {
+        this.id = id;
+    }
+
+    public Make() {
     }
 
     public int getId() {
@@ -33,12 +37,12 @@ public class Photo {
         this.id = id;
     }
 
-    public String getImgPath() {
-        return imgPath;
+    public String getName() {
+        return name;
     }
 
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -49,8 +53,8 @@ public class Photo {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Photo photo = (Photo) o;
-        return id == photo.id;
+        Make make = (Make) o;
+        return id == make.id;
     }
 
     @Override
@@ -60,9 +64,9 @@ public class Photo {
 
     @Override
     public String toString() {
-        return "Photo{"
+        return "Make{"
                 + "id=" + id
-                + ", imgPath='" + imgPath + '\''
+                + ", name='" + name + '\''
                 + '}';
     }
 }
