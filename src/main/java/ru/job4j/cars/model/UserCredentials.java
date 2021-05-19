@@ -10,8 +10,8 @@ import java.security.spec.KeySpec;
 import java.util.Arrays;
 import java.util.Objects;
 /**
- * Class represents user's credential storage.
- * For more information on the relationship of the entity, see db/cars_scheme_png and db/scheme.sql
+ * Class represents the user's credential storage.
+ * For more information about relationships of the entity, see db/cars_scheme.png and db/scheme.sql
  *
  *@author AndrewMs
  *@version 1.0
@@ -25,6 +25,12 @@ public class UserCredentials {
     private byte[] salt;
     private byte[] hash;
 
+    /**
+     * Initializes the salt and the hash fields with generated values.
+     * @param password String password.
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeySpecException
+     */
     public UserCredentials(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
         this.salt = generateSalt();
         this.hash = generateHash(password, this.salt);

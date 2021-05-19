@@ -16,6 +16,12 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 
+/**
+ * Represents a Hibernate repository.
+ * Provides methods to manipulate the models of the project.
+ *
+ */
+
 public class AdRepository {
     private final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder()
             .configure().build();

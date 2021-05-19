@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * doGet - replies with car model categories' JSON data.
+ * doGet - replies with car model categories' using JSON.
  *
  * @author AndrewMs
  * @version 1.0

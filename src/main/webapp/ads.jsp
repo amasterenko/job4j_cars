@@ -28,7 +28,7 @@
                 <c:if test="${!userCars}">
                 <div class="col my-auto">
                     <div class="dropdown">
-                        <button class="btn btn-link btn-sm dropdown-toggle text-dark" type="button" id="dropdownMenu"
+                        <button class="btn btn-link dropdown-toggle text-dark" type="button" id="dropdownMenu"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filters
                         </button>
@@ -160,7 +160,7 @@
                                 <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDDMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <c:out value="${sessionScope.user.name}'s menu"/>
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDDMenu">
+                                <div class="dropdown-menu text-center" aria-labelledby="navbarDDMenu">
                                     <a class="dropdown-item" href="<%=request.getContextPath()%>/edit">Sell car</a>
                                     <a class="dropdown-item" href="<%=request.getContextPath()%>/userads">My cars</a>
                                     <a class="dropdown-item" href="<%=request.getContextPath()%>/auth?cmd=out">Sign out</a>

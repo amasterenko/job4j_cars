@@ -15,8 +15,8 @@ import java.util.Set;
 /**
  * doGet - replies with all the ads and car categories' data.
  * doPost - replies with filtered ads and car categories' data.
- * Method receives the filter's parameters from client and saves them to maps,
- * then it passes them to AdRepository method filterAds.
+ * Method receives the filter's parameters from client, saves them to a map,
+ * and passes the map to "filterAds" method of AdRepository class.
  *
  * @author AndrewMs
  * @version 1.0

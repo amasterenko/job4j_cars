@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 /**
  * doGet - replies with current user's ads.
- * doPost - receives sold ad's id, check's the ad's owner and set the ad's status to "sold".
+ * doPost - receives sold ad's id, checks the ad's owner and set the ad's status to "sold".
  * @author AndrewMs
  * @version 1.0
  *

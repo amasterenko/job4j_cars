@@ -10,8 +10,8 @@ import javax.persistence.Table;
 import java.util.*;
 /**
  * Class represents car selling ad.
- * The hibernate filters are defined for using in AdRepository.
- * For more information on the relationship of the entity, see db/cars_scheme_png and db/scheme.sql
+ * The hibernate filters are defined for using in AdRepository class (method filterAds).
+ * For more information about relationships of the entity, see db/cars_scheme.png and db/scheme.sql
  *
  *@author AndrewMs
  *@version 1.0

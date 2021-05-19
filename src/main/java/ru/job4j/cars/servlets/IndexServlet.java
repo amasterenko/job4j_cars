@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * doGet - forwards to the main page.
+ * doGet - forwards requests to the main page.
  * @author AndrewMs
  * @version 1.0
  */

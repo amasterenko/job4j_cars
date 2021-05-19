@@ -16,16 +16,17 @@ ____
 - Managing ad's sold status  
 - Filtering ads 
 
-____ 
 ### Usage:  
+____  
 Before deploying:  
 1. Set the "imagesPath" parameter in web.xml file.
-That's the directory where the ads' files will be stored.  
-2. Set your DB's parameters in hibernate.cfg.xml  
+It's a directory where the ads' files will be stored.  
+2. Set your DB's parameters in hibernate.cfg.xml.  
+3. Run scheme.sql on your DB.   
 
 Deploy the WAR file to Tomcat:  
-1. Build the project
-2. Copy the war file to the Tomcat/webapps directory  
+1. Build the project.  
+2. Copy the war file to the Tomcat/webapps directory.  
 
 ### Preview:
 ____  
@@ -49,7 +50,7 @@ ____
 
 ![ScreenShot](images/sell_car.png)  
 
-<p align="center"> Sign uppage:</p> 
+<p align="center"> Sign up page:</p> 
 
 ![ScreenShot](images/sign_up.png) 
 

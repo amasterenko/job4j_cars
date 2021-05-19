@@ -3,8 +3,8 @@ package ru.job4j.cars.model;
 import javax.persistence.*;
 import java.util.Objects;
 /**
- * Class represents car's body color'.
- * For more information on the relationship of the entity, see db/cars_scheme_png and db/scheme.sql
+ * Class represents car's body color.
+ * For more information about relationships of the entity, see db/cars_scheme.png and db/scheme.sql
  *
  *@author AndrewMs
  *@version 1.0
