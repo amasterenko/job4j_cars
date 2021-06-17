@@ -4,11 +4,12 @@ ____
 Сar sales web market. It allows you to create and find advertising for cars sales.   
 
 This project demonstrates the principles of the following technologies:  
-- Hibernate  
-- PostgreSQL  
-- JAVA servlets  
-- HTML (Bootstrap)  
+- Hibernate (PostgreSQL)
+- JAVA servlets/JSTL    
+- Bootstrap  
 - JS/JQuery  
+- Slf4j  
+- Travis CI
 
 ### Features:
 ____  
@@ -20,9 +21,9 @@ ____
 ### Usage:  
 ____  
 Before deploying:  
-1. Set the "imagesPath" parameter in web.xml file.
-It's a directory where the ads' files will be stored.  
-2. Set your DB's parameters in hibernate.cfg.xml.  
+1. Set the "imagesPath" parameter in ./src/main/webapp/WEB-INF/web.xml file.  
+It's a directory where the ads photo will be stored.  
+2. Set your DB's parameters in ./src/resources/hibernate.cfg.xml.  
 3. Run scheme.sql on your DB.   
 
 Deploy the WAR file to Tomcat:  
