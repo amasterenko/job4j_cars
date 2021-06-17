@@ -1,20 +1,21 @@
 # Only car sales  
 [![Build Status](https://travis-ci.com/amasterenko/job4j_todolist.svg?branch=master)](https://travis-ci.com/amasterenko/job4j_todolist)  
 ____ 
+Сar sales web market. It allows you to create and find advertising for cars sales.   
 
-This project is created as an example, demonstrating the principles of next technologies:  
+This project demonstrates the principles of the following technologies:  
 - Hibernate  
 - PostgreSQL  
 - JAVA servlets  
-- Bootstrap  
+- HTML (Bootstrap)  
 - JS/JQuery  
 
 ### Features:
 ____  
 - User's authentication  
 - Creating ads  
-- Managing ad's sold status  
-- Filtering ads 
+- Sold status management      
+- Filtering ads by parameters   
 
 ### Usage:  
 ____  
@@ -42,11 +43,11 @@ ____
 
 ![ScreenShot](images/user_menu.png)  
 
-<p align="center"> User ads:</p> 
+<p align="center"> Ads of current user:</p> 
 
 ![ScreenShot](images/user_cars.png)  
 
-<p align="center"> New ad's page:</p> 
+<p align="center"> Page of new ad:</p> 
 
 ![ScreenShot](images/sell_car.png)  
 
