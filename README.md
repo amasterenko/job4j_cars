@@ -14,7 +14,7 @@ Stores ads in the DB, and the ads image files on the file system of the server.
 
 ### Features  
 
-- User's authentication  
+- User authentication  
 - Creating ads      
 - Sold status management      
 - Filtering ads by parameters
